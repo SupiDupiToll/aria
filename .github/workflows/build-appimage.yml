@@ -2,9 +2,9 @@ name: Build AppImage
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' # Use a common Python version available on ubuntu-latest
+          python-version: "3.11" # Use a common Python version available on ubuntu-latest
 
       - name: Install system dependencies
         run: |
@@ -137,29 +137,29 @@ jobs:
           done
 
           cat > "${APPDIR}/usr/bin/aria" <<EOF
-#!/usr/bin/env bash
-set -euo pipefail
-HERE="\$(cd "\$(dirname "\$(readlink -f "\${BASH_SOURCE[0]}")")/.." && pwd)"
-export PATH="\${HERE}/bin:\${PATH}"
-export LD_LIBRARY_PATH="\${HERE}/lib\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}"
-export PYTHONHOME="\${HERE}"
-export PYTHONPATH="\${HERE}/lib/musicplayer/src:\${HERE}/lib/python${PYTHON_VERSION}/site-packages"
-export GI_TYPELIB_PATH="\${HERE}/lib/girepository-1.0"
-export GIO_MODULE_DIR="\${HERE}/lib/gio/modules"
-export GSETTINGS_SCHEMA_DIR="\${HERE}/share/glib-2.0/schemas"
-export GST_PLUGIN_SYSTEM_PATH_1_0="\${HERE}/lib/gstreamer-1.0"
-export GST_PLUGIN_PATH_1_0="\${HERE}/lib/gstreamer-1.0"
-export XDG_DATA_DIRS="\${HERE}/share\${XDG_DATA_DIRS:+:\${XDG_DATA_DIRS}}"
-exec "\${HERE}/bin/python3" -m musicplayer "\$@"
-EOF
+            #!/usr/bin/env bash
+            set -euo pipefail
+            HERE="\$(cd "\$(dirname "\$(readlink -f "\${BASH_SOURCE[0]}")")/.." && pwd)"
+            export PATH="\${HERE}/bin:\${PATH}"
+            export LD_LIBRARY_PATH="\${HERE}/lib\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}"
+            export PYTHONHOME="\${HERE}"
+            export PYTHONPATH="\${HERE}/lib/musicplayer/src:\${HERE}/lib/python${PYTHON_VERSION}/site-packages"
+            export GI_TYPELIB_PATH="\${HERE}/lib/girepository-1.0"
+            export GIO_MODULE_DIR="\${HERE}/lib/gio/modules"
+            export GSETTINGS_SCHEMA_DIR="\${HERE}/share/glib-2.0/schemas"
+            export GST_PLUGIN_SYSTEM_PATH_1_0="\${HERE}/lib/gstreamer-1.0"
+            export GST_PLUGIN_PATH_1_0="\${HERE}/lib/gstreamer-1.0"
+            export XDG_DATA_DIRS="\${HERE}/share\${XDG_DATA_DIRS:+:\${XDG_DATA_DIRS}}"
+            exec "\${HERE}/bin/python3" -m musicplayer "\$@"
+          EOF
           chmod +x "${APPDIR}/usr/bin/aria"
 
           cat > "${APPDIR}/AppRun" <<EOF
-#!/usr/bin/env bash
-set -euo pipefail
-HERE="\$(cd "\$(dirname "\$(readlink -f "\${BASH_SOURCE[0]}")")" && pwd)"
-exec "\${HERE}/usr/bin/aria" "\$@"
-EOF
+            #!/usr/bin/env bash
+            set -euo pipefail
+            HERE="\$(cd "\$(dirname "\$(readlink -f "\${BASH_SOURCE[0]}")")" && pwd)"
+            exec "\${HERE}/usr/bin/aria" "\$@"
+          EOF
           chmod +x "${APPDIR}/AppRun"
 
           linuxdeploy_args=(
