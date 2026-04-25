@@ -66,12 +66,7 @@ jobs:
           echo "ARCH_TRIPLE: ${ARCH_TRIPLE}"
 
           rm -rf "${APPDIR}"
-          mkdir -p
-              "${APPDIR}/usr/bin"
-              "${APPDIR}/usr/lib"
-              "${APPDIR}/usr/share/applications"
-              "${APPDIR}/usr/share/icons/hicolor/scalable/apps"
-              "${APPDIR}/usr/share/metainfo"
+          mkdir -p "${APPDIR}/usr/bin" "${APPDIR}/usr/lib" "${APPDIR}/usr/share/applications" "${APPDIR}/usr/share/icons/hicolor/scalable/apps" "${APPDIR}/usr/share/metainfo"
 
           cp -a "${ROOT_DIR}/src" "${APPDIR}/usr/lib/musicplayer"
           cp -a "${PYTHON_LIB_DIR}" "${APPDIR}/usr/lib/"
