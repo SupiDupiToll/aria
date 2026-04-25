@@ -20,24 +20,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends
-            libgtk-4-dev
-            libadwaita-1-dev
-            python3-gi
-            python3-requests
-            python3-mutagen
-            python3-certifi
-            python3-idna
-            python3-charset-normalizer
-            gstreamer1.0-plugins-base
-            gstreamer1.0-plugins-good
-            gstreamer1.0-tools
-            gstreamer1.0-alsa
-            gstreamer1.0-pulseaudio
-            gstreamer1.0-gtk4
-            libgirepository1.0-dev
-            pkg-config
-            python3-setuptools # Ensure setuptools is available for any setup.py calls
+          sudo apt-get install -y --no-install-recommends libgtk-4-dev libadwaita-1-dev python3-gi python3-requests python3-mutagen python3-certifi python3-idna python3-charset_normalizer gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-tools gstreamer1.0-alsa gstreamer1.0-pulseaudio gstreamer1.0-gtk4 libgirepository1.0-dev pkg-config python3-setuptools
 
       - name: Download AppImage tools
         run: |
