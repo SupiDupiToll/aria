@@ -22,9 +22,9 @@ source=()
 sha256sums=()
 
 package() {
-  install -Dm644 "$startdir/data/org.example.MusicPlayer.desktop.in" "$pkgdir/usr/share/applications/org.example.Aria.desktop"
-  install -Dm644 "$startdir/data/org.example.MusicPlayer.metainfo.xml" "$pkgdir/usr/share/metainfo/org.example.Aria.metainfo.xml"
-  install -Dm644 "$startdir/data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/org.example.Aria.svg"
+  install -Dm644 "$startdir/data/org.example.MusicPlayer.desktop.in" "$pkgdir/usr/share/applications/de.sdtoll.aria.desktop"
+  install -Dm644 "$startdir/data/org.example.MusicPlayer.metainfo.xml" "$pkgdir/usr/share/metainfo/de.sdtoll.aria.metainfo.xml"
+  install -Dm644 "$startdir/data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/de.sdtoll.aria.svg"
   install -d "$pkgdir/usr/lib/musicplayer"
   cp -r "$startdir/src" "$pkgdir/usr/lib/musicplayer/"
   install -Dm755 /dev/stdin "$pkgdir/usr/bin/aria" <<'EOF'

@@ -1,4 +1,4 @@
 """Aria package."""
 
-APP_ID = "org.example.Aria"
+APP_ID = "de.sdtoll.aria"
 APP_NAME = "Aria"

@@ -59,15 +59,15 @@ cp -a "${ICON_THEME_DIR}/index.theme" "${APPDIR}/usr/share/icons/hicolor/"
 cp -a "${PYTHON_BIN}" "${APPDIR}/usr/bin/python3"
 
 cp "${ROOT_DIR}/data/org.example.MusicPlayer.desktop.in" \
-    "${APPDIR}/usr/share/applications/org.example.Aria.desktop"
+    "${APPDIR}/usr/share/applications/de.sdtoll.aria.desktop"
 cp "${ROOT_DIR}/data/org.example.MusicPlayer.desktop.in" \
-    "${APPDIR}/org.example.Aria.desktop"
+    "${APPDIR}/de.sdtoll.aria.desktop"
 cp "${ROOT_DIR}/data/org.example.MusicPlayer.metainfo.xml" \
-    "${APPDIR}/usr/share/metainfo/org.example.Aria.appdata.xml"
+    "${APPDIR}/usr/share/metainfo/de.sdtoll.aria.appdata.xml"
 cp "${ROOT_DIR}/data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg" \
-    "${APPDIR}/usr/share/icons/hicolor/scalable/apps/org.example.Aria.svg"
+    "${APPDIR}/usr/share/icons/hicolor/scalable/apps/de.sdtoll.aria.svg"
 cp "${ROOT_DIR}/data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg" \
-    "${APPDIR}/org.example.Aria.svg"
+    "${APPDIR}/de.sdtoll.aria.svg"
 
 find "${APPDIR}" -type d -name '__pycache__' -prune -exec rm -rf {} +
 find "${APPDIR}/usr/lib/python3.14" -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
@@ -128,8 +128,8 @@ chmod +x "${APPDIR}/AppRun"
 linuxdeploy_args=(
     --appimage-extract-and-run
     --appdir "${APPDIR}"
-    --desktop-file "${APPDIR}/usr/share/applications/org.example.Aria.desktop"
-    --icon-file "${APPDIR}/usr/share/icons/hicolor/scalable/apps/org.example.Aria.svg"
+    --desktop-file "${APPDIR}/usr/share/applications/de.sdtoll.aria.desktop"
+    --icon-file "${APPDIR}/usr/share/icons/hicolor/scalable/apps/de.sdtoll.aria.svg"
     --executable "${APPDIR}/usr/bin/python3"
     --executable "${APPDIR}/usr/bin/aria"
 )

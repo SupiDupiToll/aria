@@ -2,7 +2,7 @@
 Name=Aria
 Comment=Native GTK music player
 Exec=aria
-Icon=org.example.Aria
+Icon=de.sdtoll.aria
 Terminal=false
 Type=Application
 Categories=AudioVideo;Audio;Player;GTK;

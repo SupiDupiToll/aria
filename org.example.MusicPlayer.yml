@@ -1,4 +1,4 @@
-app-id: org.example.Aria
+app-id: de.sdtoll.aria
 runtime: org.gnome.Platform
 runtime-version: "47"
 sdk: org.gnome.Sdk
@@ -9,17 +9,17 @@ finish-args:
   - --socket=fallback-x11
   - --socket=pulseaudio
   - --filesystem=xdg-music
-  - --filesystem=xdg-config/org.example.Aria:create
-  - --filesystem=xdg-cache/org.example.Aria:create
+  - --filesystem=xdg-config/de.sdtoll.aria:create
+  - --filesystem=xdg-cache/de.sdtoll.aria:create
 modules:
   - name: aria
     buildsystem: simple
     build-commands:
       - install -Dm755 flatpak/musicplayer /app/bin/aria
       - cp -r src /app/lib/musicplayer
-      - install -Dm644 data/org.example.MusicPlayer.desktop.in /app/share/applications/org.example.Aria.desktop
-      - install -Dm644 data/org.example.MusicPlayer.metainfo.xml /app/share/metainfo/org.example.Aria.metainfo.xml
-      - install -Dm644 data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg /app/share/icons/hicolor/scalable/apps/org.example.Aria.svg
+      - install -Dm644 data/org.example.MusicPlayer.desktop.in /app/share/applications/de.sdtoll.aria.desktop
+      - install -Dm644 data/org.example.MusicPlayer.metainfo.xml /app/share/metainfo/de.sdtoll.aria.metainfo.xml
+      - install -Dm644 data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg /app/share/icons/hicolor/scalable/apps/de.sdtoll.aria.svg
     sources:
       - type: dir
         path: .
