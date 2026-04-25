@@ -42,13 +42,15 @@ jobs:
           APPIMAGETOOL="/tmp/appimagetool.AppImage"
           RUNTIME_FILE="/tmp/runtime-x86_64"
 
+          # Use Python installation provided by actions/setup-python
           PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
-          PYTHON_BIN="/usr/bin/python${PYTHON_VERSION}"
-          PYTHON_LIB_DIR="/usr/lib/python${PYTHON_VERSION}"
-          PYTHON_SITE_PACKAGES="/usr/lib/python${PYTHON_VERSION}/dist-packages" # Ubuntu uses dist-packages for system-wide packages
+          PYTHON_BASE_PATH="${{ env.pythonLocation }}"
+          PYTHON_BIN="${PYTHON_BASE_PATH}/bin/python3"
+          PYTHON_LIB_DIR="${PYTHON_BASE_PATH}/lib/python${PYTHON_VERSION}"
+          PYTHON_SITE_PACKAGES="${PYTHON_BASE_PATH}/lib/python${PYTHON_VERSION}/site-packages" # actions/setup-python uses site-packages
 
           # Determine architecture-specific paths for GObject introspection, GIO, and GStreamer
-          ARCH_TRIPLE=$(dpkg-architecture -q DEB_HOST_MULTIARCH)
+          ARCH_TRIPLE=$(dpkg-architecture -q DEB_HOST_MULTIARCH || echo "x86_64-linux-gnu") # Fallback for non-Debian
           GI_TYPELIB_DIR="/usr/lib/${ARCH_TRIPLE}/girepository-1.0"
           GIO_MODULE_DIR="/usr/lib/${ARCH_TRIPLE}/gio/modules"
           GSTREAMER_PLUGIN_DIR="/usr/lib/${ARCH_TRIPLE}/gstreamer-1.0"
@@ -70,8 +72,7 @@ jobs:
 
           cp -a "${ROOT_DIR}/src" "${APPDIR}/usr/lib/musicplayer"
           cp -a "${PYTHON_LIB_DIR}" "${APPDIR}/usr/lib/"
-          # Remove the problematic config directory
-          rm -rf "${APPDIR}/usr/lib/python${PYTHON_VERSION}/config-${PYTHON_VERSION/./-}-x86_64-linux-gnu"
+          # Removed: rm -rf "${APPDIR}/usr/lib/python${PYTHON_VERSION}/config-${PYTHON_VERSION/./-}-x86_64-linux-gnu" - Not needed with actions/setup-python
 
           cp -a "${GI_TYPELIB_DIR}" "${APPDIR}/usr/lib/"
           mkdir -p "${APPDIR}/usr/lib/gio"
