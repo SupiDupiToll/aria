@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Aria
+Comment=Native GTK music player
+Exec=aria
+Icon=org.example.Aria
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Player;GTK;
+StartupNotify=true

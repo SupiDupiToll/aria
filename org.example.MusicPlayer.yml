@@ -1,0 +1,25 @@
+app-id: org.example.Aria
+runtime: org.gnome.Platform
+runtime-version: "47"
+sdk: org.gnome.Sdk
+command: aria
+finish-args:
+  - --share=network
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --filesystem=xdg-music
+  - --filesystem=xdg-config/org.example.Aria:create
+  - --filesystem=xdg-cache/org.example.Aria:create
+modules:
+  - name: aria
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 flatpak/musicplayer /app/bin/aria
+      - cp -r src /app/lib/musicplayer
+      - install -Dm644 data/org.example.MusicPlayer.desktop.in /app/share/applications/org.example.Aria.desktop
+      - install -Dm644 data/org.example.MusicPlayer.metainfo.xml /app/share/metainfo/org.example.Aria.metainfo.xml
+      - install -Dm644 data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg /app/share/icons/hicolor/scalable/apps/org.example.Aria.svg
+    sources:
+      - type: dir
+        path: .

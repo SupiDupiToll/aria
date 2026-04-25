@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+export PYTHONPATH=/usr/lib/musicplayer/src
+exec /usr/bin/python -m musicplayer "$@"

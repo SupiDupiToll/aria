@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aria"
+version = "0.1.0"
+description = "Aria, a native GTK4/libadwaita music player for Linux"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "mutagen>=1.47.0",
+  "requests>=2.31.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

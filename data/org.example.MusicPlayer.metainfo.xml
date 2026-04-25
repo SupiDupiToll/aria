@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.example.Aria</id>
+  <name>Aria</name>
+  <summary>Native GTK music player for Linux</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <description>
+    <p>Aria is a native GTK4 and libadwaita music player built for modern Linux desktops.</p>
+  </description>
+  <launchable type="desktop-id">org.example.Aria.desktop</launchable>
+  <content_rating type="oars-1.1"/>
+  <developer id="org.example">
+    <name>Aria</name>
+  </developer>
+  <provides>
+    <binary>aria</binary>
+  </provides>
+  <categories>
+    <category>AudioVideo</category>
+    <category>Player</category>
+  </categories>
+</component>
