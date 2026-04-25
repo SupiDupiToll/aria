@@ -3,10 +3,10 @@
 pkgname = aria
 pkgbase = aria
 xdata = pkgtype=pkg
-pkgver = 0.1.0-4
+pkgver = 0.1.0-5
 pkgdesc = Aria, a native GTK4/libadwaita music player
 url = https://example.org/aria
-builddate = 1777129647
+builddate = 1777133852
 packager = Unknown Packager
 size = 450466
 arch = any

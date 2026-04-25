@@ -1,7 +1,7 @@
 pkgname=aria
 pkgver=0.1.0
 pkgrel=5
-install=('aria.install')
+install="aria.install"
 pkgdesc="Aria, a native GTK4/libadwaita music player"
 arch=('any')
 url="https://example.org/aria"

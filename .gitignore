@@ -32,3 +32,4 @@ pkg/
 /tmp/appimagetool.AppImage
 /tmp/runtime-x86_64
 /tmp/build-appimage-temp.sh
+*.tar.zst

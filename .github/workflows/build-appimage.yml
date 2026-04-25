@@ -27,7 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install "pygobject>=3.42" requests urllib3 certifi charset-normalizer idna mutagen
         env:
-          PKG_CONFIG_PATH: "/usr/share/pkgconfig"
+          PKG_CONFIG_PATH: "/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/share/pkgconfig"
 
       - name: Download AppImage tools
         run: |
