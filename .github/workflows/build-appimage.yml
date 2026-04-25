@@ -22,6 +22,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends libgtk-4-dev libadwaita-1-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-tools gstreamer1.0-alsa gstreamer1.0-pulseaudio libgirepository1.0-dev pkg-config python3-setuptools libcairo2-dev
 
+      - name: Debug PKG_CONFIG_PATH and girepository-2.0.pc
+        run: |
+          echo "Current PKG_CONFIG_PATH: $PKG_CONFIG_PATH"
+          echo "Searching for girepository-2.0.pc in system paths..."
+          find /usr -name "girepository-2.0.pc"
+          find /usr/lib -name "pkgconfig" -type d -print -exec ls -l {} \;
+          find /usr/share -name "pkgconfig" -type d -print -exec ls -l {} \;
+
       - name: Install Python dependencies with pip
         run: |
           python -m pip install --upgrade pip
