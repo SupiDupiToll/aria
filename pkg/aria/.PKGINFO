@@ -6,9 +6,9 @@ xdata = pkgtype=pkg
 pkgver = 0.1.0-4
 pkgdesc = Aria, a native GTK4/libadwaita music player
 url = https://example.org/aria
-builddate = 1777122894
+builddate = 1777129647
 packager = Unknown Packager
-size = 443023
+size = 450466
 arch = any
 license = MIT
 depend = python

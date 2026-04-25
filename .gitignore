@@ -1,2 +1,34 @@
+# Python bytecode
 __pycache__/
 *.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+.python-version
+
+# Build artifacts
+dist/
+pkg/
+*.AppDir/
+
+# Logs and temporary files
+*.log
+*.swp
+*~
+.tmp/
+
+# IDE and tool-specific files
+.codex/
+.vscode/
+.idea/
+
+# Gemini CLI temporary directory (if generated inside project)
+.gemini/
+
+# AppImage related temporary files
+/tmp/linuxdeploy.AppImage
+/tmp/appimagetool.AppImage
+/tmp/runtime-x86_64
+/tmp/build-appimage-temp.sh
