@@ -82,16 +82,11 @@ jobs:
           cp -a "${ICON_THEME_DIR}/index.theme" "${APPDIR}/usr/share/icons/hicolor/"
           cp -a "${PYTHON_BIN}" "${APPDIR}/usr/bin/python3"
 
-          cp "${ROOT_DIR}/data/org.example.MusicPlayer.desktop.in"
-              "${APPDIR}/usr/share/applications/org.example.Aria.desktop"
-          cp "${ROOT_DIR}/data/org.example.MusicPlayer.desktop.in"
-              "${APPDIR}/org.example.Aria.desktop"
-          cp "${ROOT_DIR}/data/org.example.MusicPlayer.metainfo.xml"
-              "${APPDIR}/usr/share/metainfo/org.example.Aria.appdata.xml"
-          cp "${ROOT_DIR}/data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg"
-              "${APPDIR}/usr/share/icons/hicolor/scalable/apps/org.example.Aria.svg"
-          cp "${ROOT_DIR}/data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg"
-              "${APPDIR}/org.example.Aria.svg"
+          cp "${ROOT_DIR}/data/org.example.MusicPlayer.desktop.in" "${APPDIR}/usr/share/applications/org.example.Aria.desktop"
+          cp "${ROOT_DIR}/data/org.example.MusicPlayer.desktop.in" "${APPDIR}/org.example.Aria.desktop"
+          cp "${ROOT_DIR}/data/org.example.MusicPlayer.metainfo.xml" "${APPDIR}/usr/share/metainfo/org.example.Aria.appdata.xml"
+          cp "${ROOT_DIR}/data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg" "${APPDIR}/usr/share/icons/hicolor/scalable/apps/org.example.Aria.svg"
+          cp "${ROOT_DIR}/data/icons/hicolor/scalable/apps/org.example.MusicPlayer.svg" "${APPDIR}/org.example.Aria.svg"
 
           find "${APPDIR}" -type d -name '__pycache__' -prune -exec rm -rf {} +
           find "${APPDIR}/usr/lib/python${PYTHON_VERSION}" -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
