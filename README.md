@@ -12,6 +12,7 @@ It is designed as a local-first desktop player with a modern GNOME-style interfa
 - Library views for tracks, albums, artists, genres, folders, playlists, queue, Last.fm, and now playing
 - Cover art in the library and throughout playback views
 - Larger clickable synced lyrics with auto-centering on the current line
+- Supports reading .lrc lyric files (LRC format)
 - Fullscreen lyrics mode with cover art, title, and artist/album header
 - Queue editing, playlist import/export, and saved playlists
 - GStreamer playback with seeking, volume control, replaygain, normalization, and output-device selection
