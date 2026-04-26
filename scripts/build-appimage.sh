@@ -8,7 +8,6 @@ OUTPUT_APPIMAGE="${DIST_DIR}/Aria-x86_64.AppImage"
 
 LINUXDEPLOY="${LINUXDEPLOY:-/tmp/linuxdeploy.AppImage}"
 APPIMAGETOOL="${APPIMAGETOOL:-/tmp/appimagetool.AppImage}"
-RUNTIME_FILE="${RUNTIME_FILE:-/tmp/runtime-x86_64}"
 
 PYTHON_BIN="/usr/bin/python3.14"
 PYTHON_LIB_DIR="/usr/lib/python3.14"
@@ -131,7 +130,6 @@ linuxdeploy_args=(
     --desktop-file "${APPDIR}/usr/share/applications/de.sdtoll.aria.desktop"
     --icon-file "${APPDIR}/usr/share/icons/hicolor/scalable/apps/de.sdtoll.aria.svg"
     --executable "${APPDIR}/usr/bin/python3"
-    --executable "${APPDIR}/usr/bin/aria"
 )
 
 while IFS= read -r -d '' file; do
@@ -144,7 +142,16 @@ done < <(find \
 
 "${LINUXDEPLOY}" "${linuxdeploy_args[@]}"
 
-ARCH=x86_64 "${APPIMAGETOOL}" --appimage-extract-and-run \
+# Remove libraries that contain .relr.dyn sections (newer ELF features) which
+# appimagetool's embedded strip cannot handle on some distributions.
+while IFS= read -r -d '' lib; do
+    if readelf -S "${lib}" 2>/dev/null | grep -q '\.relr\.dyn'; then
+        echo "Removing unsupported library ${lib}"
+        rm -f "${lib}"
+    fi
+done < <(find "${APPDIR}/usr/lib" -type f \( -name '*.so' -o -name '*.so.*' \) -print0)
+
+STRIP=/bin/true ARCH=x86_64 "${APPIMAGETOOL}" --appimage-extract-and-run \
     --runtime-file "${RUNTIME_FILE}" \
     "${APPDIR}" \
     "${OUTPUT_APPIMAGE}"
