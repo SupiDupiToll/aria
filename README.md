@@ -39,3 +39,7 @@ Required runtime packages on Linux:
 - `gst-plugins-good`
 - `python-mutagen`
 - `python-requests`
+
+## License
+
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en)
